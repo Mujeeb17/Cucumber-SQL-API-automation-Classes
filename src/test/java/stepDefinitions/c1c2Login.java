@@ -4,23 +4,25 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-public class Login {
+import utils.CommonMethods;
+import utils.ConfigReader;
 
-    WebDriver driver;
+
+public class c1c2Login extends CommonMethods{
 
     @Given("open the browser and launch HRMS application")
     public void open_the_browser_and_launch_hrms_application() {
-        driver = new ChromeDriver();
-        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
+
+        openBrowserAndApplication();
+
     }
+
 
     @When("user enters valid email and valid password")
     public void user_enters_valid_email_and_valid_password() {
 
-        driver.findElement(By.id("txtUsername")).sendKeys("admin");
-        driver.findElement(By.id("txtPassword")).sendKeys("Hum@nhrm123");
+        driver.findElement(By.id("txtUsername")).sendKeys(ConfigReader.getPropertyValue("un"));
+        driver.findElement(By.id("txtPassword")).sendKeys(ConfigReader.getPropertyValue("pw"));
 
     }
 
@@ -35,5 +37,10 @@ public class Login {
         if (userloggedIn) {
             System.out.println("User is logged in Successfully");
         }
+    }
+
+    @Then("close the browser")
+    public void close_the_browser() {
+        closeBrowser();
     }
 }

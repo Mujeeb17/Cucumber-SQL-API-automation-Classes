@@ -1,0 +1,30 @@
+- In order to run a class on cucumber, you need:
+    - a feature class
+    - a step definitions class
+    - a runner class
+
+Feature class
+    - this should always have the .feature extension
+    - it should be in gherkin language
+        - Keywords: Feature, Scenario, Given, When, And, Then
+    - when you run this file, it will give you a template for the code
+      that will be in your step definitions class which will be in java code
+
+Step Definitions class
+    - After pasting the rough template that was made with your feature file,
+      you can now actually code what you say the program should do
+    - Use gherkin keywords as annotations ex: @Given, @Then etc.
+
+Runner class
+    - This is the class you should run to execute the test case.
+        - you are also able to run the test cases from the feature file but this is not preferred
+    - in this class, above the class declaration, you must put the following:
+        @RunWith(Cucumber.class)
+        @CucumberOptions(features = pathToYour.featureClass, glue = pathToYourStepDefinitionsClass)
+            - features path --> \path\path\
+            - glue path --> path.path.path
+
+
+ - features = maps where feature files are located in our framework
+ - glue = maps where class files are located in our framework
+ - dry run = true-> it will check which step of your feature file does not have glue code
