@@ -10,12 +10,12 @@ import utils.ConfigReader;
 
 public class c1c2Login extends CommonMethods{
 
-    @Given("open the browser and launch HRMS application")
-    public void open_the_browser_and_launch_hrms_application() {
-
-        openBrowserAndApplication();
-
-    }
+//    @Given("open the browser and launch HRMS application")
+//    public void open_the_browser_and_launch_hrms_application() {
+//
+//        openBrowserAndApplication();
+//
+//    }
 
 
     @When("user enters valid email and valid password")
@@ -39,8 +39,17 @@ public class c1c2Login extends CommonMethods{
         }
     }
 
-    @Then("close the browser")
-    public void close_the_browser() {
-        closeBrowser();
+    @When("user enters valid {string} and valid {string}")
+    public void user_enters_valid_and_valid(String username, String password) {
+        //the values of username and password are automatically set to the
+        //values from the feature file
+        sendText(driver.findElement(By.id("txtUsername")), username);
+        sendText(driver.findElement(By.id("txtPassword")), password);
     }
 }
+
+//    @Then("close the browser")
+//    public void close_the_browser() {
+//        closeBrowser();
+//    }
+//}

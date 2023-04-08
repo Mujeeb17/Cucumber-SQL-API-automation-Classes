@@ -1,0 +1,66 @@
+- to comment inside feature files in gherkin, use #
+- you can tag scenarios inside feature file by:
+    @tag
+  the tag can be whatever you want, like a group name in TestNG
+- on your runner class, inside your @CucumberOptions annotation
+  you can put : tags = "@tag" and then the runner class will only run
+  scenarios with that tag
+    - scenarios can have more than one tag
+    - you can also put : tags = "@tag1 or @tag2 or..." to run more than one scenario
+
+- created some more common methods for our framework
+
+- when you put tags in Cucumber Option, you can use 'or' keyword : tags = "@tag1 or @tag2"
+    - this will execute any testcase that has the tags: @tag1, @tag2
+
+- you can also use 'and' keyword : tags = "@tag1 and @tag2"
+    - this will execute all testcases that have both of those tags
+    - like && operator
+
+- you can combine these : tags = "@tag1 or @tag2 and @tag3"
+    - this executes testcases that have only @tag1 or any testcase that has
+      both @tag2 and @tag3
+
+- new Cucumber option : plugin
+    - plugin = {"pretty"} makes your console more readable
+
+Hooks
+    - : for defining preconditions and post-conditions
+    - these are always made in step definitions package
+    - this class that contains hooks, can't be inherited
+    - for the hooks @After and @Before, use the io.cucumber version
+
+    - if you want hooks that are specific to a test case, you must have a tag
+      for that case like @tc1. In your hooks class you must put :
+      @Before(value = "@tc1")
+        - note that the general @Before hook will also be executed for @tc1,
+          the code above is adding an additional precondition for that specific test case
+
+Background keyword in feature files
+    - when test cases inside the same feature have common steps, you can put these steps inside the
+      Background:
+    - only put the steps that are in common until the flow is broken
+        - the Scenarios may have common steps after they execute
+          their unique steps, even though they're common, the flow was broken
+          so don't add those steps to background
+
+- Hooks@Before --> Background --> Scenario steps --> Hooks@After
+
+- what are diff ways we push data to our programs?: we can hard code, we can use properties file, we can use cucumber (regular
+  expression)
+
+Regular expression
+    - Cucumber offers this as a way to get values like a username or password
+        - we can use this instead of config.properties if we want (the main
+          goal is to avoid hard coding)
+
+    - instead of getting values from our properties file, we can also put
+      them inside the Scenario using quotes like:
+      When user enters valid "admin" and valid "Hum@nhrm123"
+      when the code for that step is generated, the method will have parameters
+      that are automatically updated to the values you specified in the Scenario with the quotes
+
+- Parametrization: executing the same test case but with different sets of data
+  (like data provider in testNg)
+    - this can be achieved in Scenario Outline:
+    - we can also use Scenario Outline: to fetch data from external source like excel files

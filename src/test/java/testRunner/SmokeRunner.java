@@ -11,7 +11,8 @@ import org.junit.runner.RunWith;
         features = "src\\test\\resources\\Features",
         glue = "stepDefinitions",
         dryRun = false,
-        tags = "@testcase2"
+        tags = "@newTestcase1",
+        plugin = {"pretty"}
 
 )
 public class SmokeRunner {
