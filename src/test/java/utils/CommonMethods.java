@@ -1,5 +1,6 @@
 package utils;
 
+import Pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +18,6 @@ public class CommonMethods {
 
     public static void openBrowserAndApplication() {
         ConfigReader.readProperties();
-
         switch (ConfigReader.getPropertyValue("browser")) {
             case "Chrome":
                 driver = new ChromeDriver();

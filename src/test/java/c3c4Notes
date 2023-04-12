@@ -57,6 +57,7 @@ Regular expression
     - instead of getting values from our properties file, we can also put
       them inside the Scenario using quotes like:
       When user enters valid "admin" and valid "Hum@nhrm123"
+
       when the code for that step is generated, the method will have parameters
       that are automatically updated to the values you specified in the Scenario with the quotes
 

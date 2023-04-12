@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src\\test\\resources\\Features",
         glue = "stepDefinitions",
         dryRun = false,
-        tags = "@newTestcase1",
+        tags = "@testcase1",
         plugin = {"pretty"}
 
 )

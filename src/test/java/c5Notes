@@ -1,0 +1,31 @@
+Parametrization
+    - : executing the same test case but with different sets of data
+    -
+
+- the term 'data driven' means the data is coming from an external source
+
+Scenario Outline
+    - provides an alternative to data driven testing
+    - supports parametrization
+    - this is always used along the keyword: Examples
+    Ex:
+    Scenario Outline:
+        ...
+        When user enters valid "<username>" and valid "<password>"
+        ...
+        Examples:
+          | username | password    |
+          | admin    | Hum@nhrm123 |
+          | ADMIN    | Hum@nhrm123 |
+
+DataTable
+    - difference with Scenario outline is DataTable will loop through
+      all sets of data at once, Scenario Outline will execute each set
+      of data as a separate test case
+        - Scenario Outline will execute Hooks before/after every data set
+        - DataTable executes Hooks only once then runs every data set
+          (because of this, you usually have to click 'back' or logout after each data set
+           so that the loop continues)
+
+Page Object Model
+    -
