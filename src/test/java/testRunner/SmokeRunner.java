@@ -11,11 +11,12 @@ import org.junit.runner.RunWith;
         features = "src\\test\\resources\\Features",
         glue = "stepDefinitions",
         dryRun = false,
-        tags = "@testcase1",
-        plugin = {"pretty"}
+        tags = "@testcase2",
+        plugin = {"pretty", "html:target/Cucumber.html", "json:target/Cucumber.json"}
 
 )
 public class SmokeRunner {
 
+    //target folder is mostly used for storing the test case execution reports generated using Cucumber
 
 }

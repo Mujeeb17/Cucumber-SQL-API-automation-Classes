@@ -60,6 +60,7 @@ Regular expression
 
       when the code for that step is generated, the method will have parameters
       that are automatically updated to the values you specified in the Scenario with the quotes
+    - use this when you have a limited set of test data
 
 - Parametrization: executing the same test case but with different sets of data
   (like data provider in testNg)

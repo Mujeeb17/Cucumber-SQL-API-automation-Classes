@@ -1,0 +1,49 @@
+Parametrization
+    - : executing the same test case but with different sets of data
+    -
+
+- the term 'data driven' means the data is coming from an external source
+
+Scenario Outline
+    - provides an alternative to data driven testing
+    - supports parametrization
+    - this is always used along the keyword: Examples
+    Ex:
+    Scenario Outline:
+        ...
+        When user enters valid "<username>" and valid "<password>"
+        ...
+        Examples:
+          | username | password    |
+          | admin    | Hum@nhrm123 |
+          | ADMIN    | Hum@nhrm123 |
+
+DataTable
+    - difference with Scenario outline is DataTable will loop through
+      all sets of data at once, Scenario Outline will execute each set
+      of data as a separate test case
+        - Scenario Outline will execute Hooks before/after every data set
+        - DataTable executes Hooks only once then runs every data set
+          (because of this, you usually have to click 'back' or logout after each data set
+          so that the loop continues)
+
+Page Object Model
+    - (no relation to pom.xml)
+        - pom.xml is only for dependencies we need to add
+    - an object repository
+    - it stores all web elements specific to a particular page (in this project, an example is LoginPage inside Pages package)
+    - you must also create a constructor in this class to initialize the web elements on the current page, Ex:
+      public LoginPage() {
+          PageFactory.initElements(driver, this);
+      }
+
+- in order to generate reports
+    - in runner class, change plugin to have the type of report, folder it should
+      be stored in, and the file that should have it. ex:
+        - plugin = {"html:target/Cucumber.html"}
+          for html report that we want to store in target folder and we want to name it Cucumber.
+          In order to actually see the report properly, open the report with chrome browser
+
+        - plugin = {"json:target/Cucumber.json"}
+          we are doing the same thing but with a json file. To see this report properly you
+          must open in explorer then use notepad or word to open it

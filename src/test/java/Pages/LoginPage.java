@@ -20,6 +20,8 @@ public class LoginPage extends CommonMethods {
     public WebElement logoutLink;
 
     public LoginPage() {
+
+        //this initialises all elements on this page with driver
         PageFactory.initElements(driver, this);
     }
 }

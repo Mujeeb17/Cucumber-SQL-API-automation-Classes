@@ -12,6 +12,7 @@ import utils.ConfigReader;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 
 public class c1c2Login extends CommonMethods{
@@ -26,7 +27,6 @@ public class c1c2Login extends CommonMethods{
 
     @When("user enters valid email and valid password")
     public void user_enters_valid_email_and_valid_password() {
-        LoginPage login = new LoginPage();
         login.usernameTextBox.sendKeys(ConfigReader.getPropertyValue("un"));
         login.passwordTextBox.sendKeys(ConfigReader.getPropertyValue("pw"));
 
@@ -34,7 +34,6 @@ public class c1c2Login extends CommonMethods{
 
     @When("click on login button")
     public void click_on_login_button() {
-        LoginPage login = new LoginPage();
         login.loginBtn.click();
     }
 
@@ -48,7 +47,6 @@ public class c1c2Login extends CommonMethods{
 
     @When("user enters valid {string} and valid {string}")
     public void user_enters_valid_and_valid(String username, String password) {
-        LoginPage login = new LoginPage();
 
         //the values of username and password are automatically set to the
         //values from the feature file
@@ -58,7 +56,6 @@ public class c1c2Login extends CommonMethods{
 
     @When("user enters username and password and verifies login")
     public void user_enters_username_and_password_and_verifies_login(DataTable dataTable) {
-        LoginPage login = new LoginPage();
 
         List<Map<String, String>> userCredentials = dataTable.asMaps();
 

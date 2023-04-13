@@ -1,0 +1,114 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-04-13T01:43:56.799Z",
+        "before": [
+          {
+            "result": {
+              "duration": 19797717400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepDefinitions.Hooks.preCondition()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "adding a new employee",
+        "description": "",
+        "id": "employee;adding-a-new-employee",
+        "after": [
+          {
+            "result": {
+              "duration": 186956900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepDefinitions.Hooks.postCondition()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 154597100,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user enters valid email and valid password",
+            "match": {
+              "location": "stepDefinitions.c1c2Login.user_enters_valid_email_and_valid_password()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 22843749100,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "click on login button",
+            "match": {
+              "location": "stepDefinitions.c1c2Login.click_on_login_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 33676781800,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user clicks on PIM option",
+            "match": {
+              "location": "stepDefinitions.c3AddEmployee.user_clicks_on_pim_option()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 971030700,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user clicks on add employee option",
+            "match": {
+              "location": "stepDefinitions.c3AddEmployee.user_clicks_on_add_employee_option()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 260095200,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user enters firstname and middlename and lastname",
+            "match": {
+              "location": "stepDefinitions.c3AddEmployee.user_enters_firstname_and_middlename_and_lastname()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@testcase2"
+          },
+          {
+            "name": "@smoke"
+          }
+        ]
+      }
+    ],
+    "name": "Employee",
+    "description": "",
+    "id": "employee",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/Features/c3AddEmployee.feature",
+    "tags": []
+  }
+]
