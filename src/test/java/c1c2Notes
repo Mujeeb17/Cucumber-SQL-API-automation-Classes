@@ -28,3 +28,11 @@ Runner class
  - features = maps where feature files are located in our framework
  - glue = maps where class files are located in our framework
  - dry run = true-> it will check which step of your feature file does not have glue code
+
+ - note you use mvnrepository.com to get all the dependencies
+ - some interviews ask which dependency is used for Excel (Apache POI) or for
+   taking screenshots (commons-io)
+ - JUnit dependency is needed because it helps run the tests
+   automatically, it provides a lot of annotations, is needed for runner class
+
+- maven is a build automation tool

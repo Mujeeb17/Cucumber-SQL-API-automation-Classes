@@ -1,0 +1,19 @@
+- TakesScreenshot ts = (TakesScreenshot) driver;
+  ts will get the implementation for its method from RemoteWebDriver class
+- ts.getScreenshotAs() method could return you either a byte array or actual file
+  (it has the ability to store the screenshot as both types)
+
+- several notes made inside screenshot methods in CommonMethods class
+
+- instead of going to SmokeRunner class to run the test directly,
+  we added a plugin in our pom.xml that allows us to run the class in a
+  different way. (maven tab on the top right --> Project --> Lifecycle --> test)
+    - if we wanted to add more runner classes, in the pom.xml plugin in <includes> tag,
+      we can add it there
+
+- in @CucumberOptions we added "rerun:target/failed.txt" which will add all the test cases that
+  failed in the previous run to a falied.txt file inside target folder.
+- we created a new runner class that will execute only the test cases that have failed
+
+- sidenote: Jenkins only needs to know pom.xml location so it can run the tests
+  (we have not used Jenkins so far)

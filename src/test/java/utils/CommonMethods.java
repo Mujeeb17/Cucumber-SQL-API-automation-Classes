@@ -1,14 +1,18 @@
 package utils;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import stepDefinitions.PageInitialiser;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 
 public class CommonMethods extends PageInitialiser {
@@ -29,6 +33,7 @@ public class CommonMethods extends PageInitialiser {
                 break;
         }
 
+        driver.manage().window().maximize();
         driver.get(ConfigReader.getPropertyValue("url"));
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(Constants.WAIT_TIME));
 
@@ -70,5 +75,36 @@ public class CommonMethods extends PageInitialiser {
                 x.click();
             }
         }
+    }
+
+    // Screenshots method
+    public static byte[] takeScreenshot(String imageName){
+        //it will get its implementation from RemoteWebDriver class
+        TakesScreenshot ts = (TakesScreenshot) driver;
+
+        //this captures the screenshot and stores it as a byte array.
+        //the method getScreenshotAs() is returning bytes
+        byte[] picBytes = ts.getScreenshotAs(OutputType.BYTES);
+
+        //this captures the screenshot and stores it in sourceFile variable
+        //the same method is now returning a file (the actual picture)
+        File sourceFile = ts.getScreenshotAs(OutputType.FILE);
+
+        try {
+            //this uses the commons-io dependency
+            //this copys the screenshot file and stores it in a new file under our screenshots folder
+            //the name is given in the parameters
+            FileUtils.copyFile(sourceFile, new File(Constants.SCREENSHOT_FILE_PATH + imageName + getTimeStamp("yyyy-MM-dd-HH-mm-ss") + ".png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return picBytes;
+    }
+
+    //this method is used for ss method to get timestamp
+    public static String getTimeStamp(String pattern){
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        return sdf.format(date);
     }
 }

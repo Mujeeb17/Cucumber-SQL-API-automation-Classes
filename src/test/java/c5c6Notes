@@ -47,3 +47,6 @@ Page Object Model
         - plugin = {"json:target/Cucumber.json"}
           we are doing the same thing but with a json file. To see this report properly you
           must open in explorer then use notepad or word to open it
+
+- in Constants class, user.dir gives you the path to the Project.
+-

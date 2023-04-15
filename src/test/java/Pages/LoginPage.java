@@ -6,7 +6,7 @@ import utils.CommonMethods;
 
 public class LoginPage extends CommonMethods {
 
-    //Page Factory Model
+    //Page Object Model
     // a better way to maintain web elements
     @FindBy(id = "txtUsername")
     public WebElement usernameTextBox;
