@@ -1,6 +1,8 @@
 package utils;
 
+import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -20,6 +22,7 @@ public class CommonMethods extends PageInitialiser {
     public static WebDriver driver;
 
     public static void openBrowserAndApplication() {
+
         ConfigReader.readProperties();
         switch (ConfigReader.getPropertyValue("browser")) {
             case "Chrome":
@@ -38,9 +41,16 @@ public class CommonMethods extends PageInitialiser {
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(Constants.WAIT_TIME));
 
         initialisePageObjects(); // this will initialise the pages we have in out PageInitialiser class when we open browser
+
+        DOMConfigurator.configure("log4j.xml");
+        Log.startTestcase("This is the beginning of my Test case");
+        Log.info("my test case is executing right now");
+        Log.warning("warning warning this is a warning");
     }
 
     public static void closeBrowser() {
+        Log.info("This test case is about to finish");
+        Log.endTestcase("This test case is finished");
         driver.quit();
     }
 
