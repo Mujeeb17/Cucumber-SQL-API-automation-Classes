@@ -1,0 +1,25 @@
+JDBC notes
+
+- mysql connector java is the dependency we have added
+  which allows us to use the methods that establish a connection
+  to the database and so we can send queries
+    - 3 things we need to work with the database
+        - address of DB - url
+        - name of DB
+        - username, password
+
+- Connections class: to establish connection with DB
+- make a statement (Statement class): allows us to send query to DB
+- ResultSet class: result of query will be stored in an object of this type
+    - rset.next() : shifts the focus to the next row in the table
+- ResultSetMetaData class : contains the information about a ResultSet object
+  like how many rows/columns and names of columns etc.
+
+- to integrate with the framework, we will pass url, username, and password in config.properties file
+
+- note : important to ALWAYS close the connection to the database when you are done with it
+  (this can be done in the 'finally' block of code)
+    - order to close the connection:
+         close resultset
+         close statement
+         close connection

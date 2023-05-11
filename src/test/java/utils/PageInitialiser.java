@@ -1,4 +1,4 @@
-package stepDefinitions;
+package utils;
 
 import Pages.AddEmployeePage;
 import Pages.LoginPage;

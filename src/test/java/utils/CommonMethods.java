@@ -1,6 +1,5 @@
 package utils;
 
-import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.*;
@@ -8,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import stepDefinitions.PageInitialiser;
 
 import java.io.File;
 import java.io.IOException;

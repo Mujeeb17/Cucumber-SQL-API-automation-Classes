@@ -39,7 +39,7 @@ public class s1DatabaseTest2 {
                 System.out.println(columnName);
             }
             System.out.println();
-            
+
             while (rset.next()) {
                 //moving from 1 row to another row, we use while loop
 
