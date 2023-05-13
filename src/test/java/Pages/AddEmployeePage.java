@@ -27,4 +27,6 @@ public class AddEmployeePage extends CommonMethods {
 
     @FindBy(xpath = "//input[@id='btnSave']")
     public WebElement saveBtn;
+    @FindBy(xpath = "//input[@id='employeeId']")
+    public WebElement empIdBox;
 }

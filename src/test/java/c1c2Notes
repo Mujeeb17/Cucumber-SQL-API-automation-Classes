@@ -36,3 +36,4 @@ Runner class
    automatically, it provides a lot of annotations, is needed for runner class
 
 - maven is a build automation tool
+- Cucumber uses JUnit assertions

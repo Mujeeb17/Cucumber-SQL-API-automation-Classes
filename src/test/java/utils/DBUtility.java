@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class DBUtility {
 
+    //even if we don't put '= null' it will still be null when we declare it
+    //some companies have standards that say we should always declare it as null;
     static Connection conn = null;
     static Statement statement = null;
     private static ResultSet rset;
@@ -30,7 +32,10 @@ public class DBUtility {
 
     //this method will return the object of rSetMetaData
     public static ResultSetMetaData getResultSetMetaData(String query) {
+
+        //to get metaData we need to get ResultSet first, so we call this method
         rset = getResultSet(query);
+
         rSetMetaData = null;
 
         //we use this line to get the data in tabular format so that we can use

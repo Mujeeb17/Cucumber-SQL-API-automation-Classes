@@ -1,0 +1,14 @@
+- to integrate our db in framework, we created DBUtility class
+
+- we added a scenario in AddEmployee.feature
+    - to add employee and capture employees id from UI
+    - and then verify it through the DB (we used firstname & lastname to verify)
+- we added steps in AddEmployee stepDefinitions
+
+    // VERIFICATION IS EXISTANCE OF CERTAIN ELEMENTS
+    // VALIDATION IS CHECKING OF ELEMENT IS EDITABLE
+
+- NEVER USE IF ELSE OVER ASSERTIONS
+- assertions are always preferred
+
+- Cucumber uses JUnit assertions
