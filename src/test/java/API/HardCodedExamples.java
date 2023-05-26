@@ -47,6 +47,9 @@ public class HardCodedExamples {
 
         response.then().assertThat().header("Content-Type","application/json"); // verifying response header
 
+        Assert.assertEquals("Message", "Employee Created"); // using JUnit
+        response.then().assertThat().body("Message", equalTo("Employee Created")); // using REST Assured
+
         //we are capturing employee id from the response
         empID = response.jsonPath().getString("Employee.employee_id");
 
