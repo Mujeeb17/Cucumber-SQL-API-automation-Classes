@@ -4,12 +4,11 @@ import io.cucumber.java.en.Given;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import utils.APIConstants;
 
 import static io.restassured.RestAssured.given;
 
 public class GenerateToken {
-    String baseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api";
-
     //making it public static so we can use the same token throughout the framework
     public static String token;
     @Given("a JWT is generated")
@@ -22,7 +21,7 @@ public class GenerateToken {
                         "    \"password\": \"test123\"\n" +
                         "}");
 
-        Response response = generateTokenRequest.when().post("/generateToken.php");
+        Response response = generateTokenRequest.when().post(APIConstants.GENERATE_TOKEN_URI);
 
         response.then().assertThat().statusCode(200);
         response.prettyPrint();
