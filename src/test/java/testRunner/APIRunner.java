@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src\\test\\resources\\Features\\APIWorkflow.feature",
         glue = "APIStepDefinitions",
         dryRun = false,
-        tags = "@apijson",
+        tags = "@update",
         plugin = {"pretty", "html:target/Cucumber.html", "json:target/Cucumber.json", "rerun:target/failed.txt"}
 )
 
