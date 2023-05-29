@@ -58,4 +58,13 @@ public class APIPayloadConstants {
 
         return obj.toString();
     }
+
+    public static String partiallyUpdateEmployeePayloadJson(){
+        JSONObject obj = new JSONObject();
+        obj.put("employee_id", "57840A");
+        obj.put("emp_job_title", "API Tester");
+
+        return obj.toString();
+
+    }
 }

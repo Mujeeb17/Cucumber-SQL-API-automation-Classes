@@ -43,3 +43,13 @@ Feature: API workflow for HRMS
     Given a request is prepared to update an employee
     When a PUT call is made to update the employee
     Then the status code for updating the employee is 200
+
+    @patch
+  Scenario: partially update employee via API call
+    Given a request is prepared to partially update an employee's details
+    When a PATCH call is made to update the employee's job title
+    Then the status code is 201
+    Then the proper Message "Employee record updated successfully" is displayed
+    Then the retrieved data at "employee" object matches with the data of updated employee
+      | emp_firstname | emp_lastname | emp_middle_name | emp_gender | emp_birthday | emp_status | emp_job_title |
+      | Bob           | Brown        | Bobby           | Male       | 2000-02-20   | confirmed  | API Tester    |

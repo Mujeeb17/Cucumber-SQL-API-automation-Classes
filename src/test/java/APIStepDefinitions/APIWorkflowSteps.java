@@ -138,4 +138,42 @@ public class APIWorkflowSteps {
     public void the_status_code_for_updating_the_employee_is(Integer code) {
         response.then().assertThat().statusCode(code);
     }
+
+    //*****************************************************************
+
+    @Given("a request is prepared to partially update an employee's details")
+    public void a_request_is_prepared_to_partially_update_an_employee_s_details() {
+        request = given().
+                header(APIConstants.HEADER_KEY_CONTENT_TYPE, APIConstants.HEADER_VALUE_CONTENT_TYPE).
+                header(APIConstants.HEADER_KEY_AUTHORIZATION, GenerateToken.token).
+                body(APIPayloadConstants.partiallyUpdateEmployeePayloadJson());
+    }
+    @When("a PATCH call is made to update the employee's job title")
+    public void a_patch_call_is_made_to_update_the_employee_s_job_title() {
+        response = request.when().patch(APIConstants.PARTIALLY_UPDATE_EMPLOYEE_URI);
+        response.prettyPrint();
+    }
+    @Then("the status code is {int}")
+    public void the_status_code_is(Integer code) {
+        response.then().assertThat().statusCode(code);
+    }
+    @Then("the proper Message {string} is displayed")
+    public void the_proper_message_is_displayed(String msg) {
+        response.then().assertThat().body("Message", equalTo(msg));
+    }
+    @Then("the retrieved data at {string} object matches with the data of updated employee")
+    public void the_retrieved_data_at_object_matches_with_the_data_of_updated_employee(String empObject, DataTable dataTable) {
+        List<Map<String, String>> actualData = dataTable.asMaps();
+
+        Map<String, String> retrievedData = response.body().jsonPath().getMap(empObject);
+
+        for(Map<String, String> x : actualData){
+            Set<String> keys = x.keySet();
+            for(String key : keys){
+                String actual = x.get(key);
+                String retrieved = retrievedData.get(key);
+                Assert.assertEquals(actual, retrieved);
+            }
+        }
+    }
 }
