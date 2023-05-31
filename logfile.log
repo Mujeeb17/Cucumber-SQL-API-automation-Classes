@@ -52,3 +52,12 @@
 2023-05-13 12:41:25 INFO  Log:21 - ###############
 2023-05-13 12:41:25 INFO  Log:22 - ###############
 2023-05-13 12:41:25 INFO  Log:23 - ######## This test case is finished ########
+2023-05-30 21:32:52 INFO  Log:16 - ***************
+2023-05-30 21:32:52 INFO  Log:17 - ***************
+2023-05-30 21:32:52 INFO  Log:18 - ******** This is the beginning of my Test case ********
+2023-05-30 21:32:52 INFO  Log:27 - my test case is executing right now
+2023-05-30 21:32:52 INFO  Log:31 - warning warning this is a warning
+2023-05-30 21:33:35 INFO  Log:27 - This test case is about to finish
+2023-05-30 21:33:35 INFO  Log:21 - ###############
+2023-05-30 21:33:35 INFO  Log:22 - ###############
+2023-05-30 21:33:35 INFO  Log:23 - ######## This test case is finished ########

@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -24,7 +25,13 @@ public class CommonMethods extends PageInitialiser {
         ConfigReader.readProperties();
         switch (ConfigReader.getPropertyValue("browser")) {
             case "Chrome":
-                driver = new ChromeDriver();
+                ChromeOptions ops = new ChromeOptions();
+                ops.addArguments("--no-sandbox");
+                ops.addArguments("--remote-allow-origins=*");
+                if(ConfigReader.getPropertyValue("Headless").equals("true")) {
+                    ops.addArguments("--headless=new");
+                }
+                driver = new ChromeDriver(ops);
                 break;
             case "Firefox":
                 driver = new FirefoxDriver();
